@@ -1,4 +1,3 @@
-# indian_law_penal_code_maharshi_patel
 
 Legal Records REST API
 A Node.js (>=v18) and Express-based RESTful API for managing legal records (laws), storing data in MongoDB with Mongoose ODM, and securing endpoints using JWT-based authentication. It implements full CRUD operations on law documents, along with advanced features such as search, filtering, pagination, sorting, and analytics (e.g. most-viewed or trending laws). All endpoints are documented (e.g. via Postman) and the code follows a MVC architecture (models/controllers/services) for clarity and scalability
@@ -76,6 +75,11 @@ In this diagram, the ExpressServer includes middlewares (e.g. auth, CORS, loggin
 
 For example, a request to fetch a specific law might proceed as follows:
 
+mermaid
+
+Show diagram
+Copy
+sequenceDiagram
     participant C as Client
     participant API as API Server
     participant DB as MongoDB
@@ -86,8 +90,7 @@ For example, a request to fetch a specific law might proceed as follows:
     API->>DB: db.laws.findById("60b8c1d2...")
     DB-->>API: { ...law document... }
     API->>C: HTTP 200 OK (law JSON)
-
-    This sequence shows the client sending a GET request, the server verifying the JWT and validating parameters, querying the database, and then responding with the law object.
+This sequence shows the client sending a GET request, the server verifying the JWT and validating parameters, querying the database, and then responding with the law object.
 
 API Reference
 All API endpoints are under the base path /api/v1. Below is a summary of key routes; each is prefixed with /api/v1 and typically requires a JSON body for POST/PUT and returns JSON.
